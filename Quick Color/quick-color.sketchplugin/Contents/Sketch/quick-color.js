@@ -35,6 +35,116 @@ var fillColorFromDocumentColorsBackward = function(context) {
     );
 }
 
+var setFillToGlobalColor1 = function(context) {
+    setSelectionToGlobalColor(context, 0, "fill");
+}
+
+var setFillToGlobalColor2 = function(context) {
+    setSelectionToGlobalColor(context, 1, "fill");
+}
+
+var setFillToGlobalColor3 = function(context) {
+    setSelectionToGlobalColor(context, 2, "fill");
+}
+
+var setFillToGlobalColor4 = function(context) {
+    setSelectionToGlobalColor(context, 3, "fill");
+}
+
+var setFillToGlobalColor5 = function(context) {
+    setSelectionToGlobalColor(context, 4, "fill");
+}
+
+var setFillToGlobalColor6 = function(context) {
+    setSelectionToGlobalColor(context, 5, "fill");
+}
+
+var setFillToGlobalColor7 = function(context) {
+    setSelectionToGlobalColor(context, 6, "fill");
+}
+
+var setFillToGlobalColor8 = function(context) {
+    setSelectionToGlobalColor(context, 7, "fill");
+}
+
+var setFillToGlobalColor9 = function(context) {
+    setSelectionToGlobalColor(context, 8, "fill");
+}
+
+var setFillToGlobalColor10 = function(context) {
+    setSelectionToGlobalColor(context, 9, "fill");
+}
+
+
+var setBorderToGlobalColor1 = function(context) {
+    setSelectionToGlobalColor(context, 0, "border");
+}
+
+var setBorderToGlobalColor2 = function(context) {
+    setSelectionToGlobalColor(context, 1, "border");
+}
+
+var setBorderToGlobalColor3 = function(context) {
+    setSelectionToGlobalColor(context, 2, "border");
+}
+
+var setBorderToGlobalColor4 = function(context) {
+    setSelectionToGlobalColor(context, 3, "border");
+}
+
+var setBorderToGlobalColor5 = function(context) {
+    setSelectionToGlobalColor(context, 4, "border");
+}
+
+var setBorderToGlobalColor6 = function(context) {
+    setSelectionToGlobalColor(context, 5, "border");
+}
+
+var setBorderToGlobalColor7 = function(context) {
+    setSelectionToGlobalColor(context, 6, "border");
+}
+
+var setBorderToGlobalColor8 = function(context) {
+    setSelectionToGlobalColor(context, 7, "border");
+}
+
+var setBorderToGlobalColor9 = function(context) {
+    setSelectionToGlobalColor(context, 8, "border");
+}
+
+var setBorderToGlobalColor10 = function(context) {
+    setSelectionToGlobalColor(context, 9, "border");
+}
+
+
+
+function setSelectionToGlobalColor(context, index, type ) {
+    var colors = NSApp.delegate().globalAssets().colors();
+    var selection = context.selection;
+
+    if (colors.count() == 0) {
+        doc.showMessage("You don't have any Global Colors set yet");
+        return false;
+    }
+
+
+    if (selection.count() == 0) {
+        doc.showMessage("Please select at least one Shape or Text layer.");
+        return false;
+    }
+
+    for (var i = 0; i < selection.count(); i++) {
+        var layer = selection.objectAtIndex(i);
+        if ( type == "fill" ) {
+            setFillColor(layer, colors.objectAtIndex(index));
+        } else if ( type == "border" ) {
+            setBorderColor(layer, colors.objectAtIndex(index));
+        }
+    }
+}
+
+
+
 function fillColorFormColors(context, colors, forward, alertMessage) {
     var doc = context.document;
 
@@ -106,5 +216,18 @@ function setFillColor(layer, color) {
     }
     if (layer.class() == "MSTextLayer") {
         layer.setTextColor(color);
+    }
+}
+
+function setBorderColor(layer, color) {
+    if (layer.class() == "MSShapeGroup") {
+        var borders = layer.style().enabledBorders();
+        if (borders.count() > 0 ) {
+            borders.lastObject().setColor(color);
+        } else {
+            var border = layer.style().addStylePartOfType(1);
+            // border.setBorderType(1);
+            borders.lastObject().setColor(color);
+        }
     }
 }

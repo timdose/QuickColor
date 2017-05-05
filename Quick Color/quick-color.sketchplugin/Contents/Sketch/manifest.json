@@ -8,31 +8,171 @@
     "commands" : [
         {
             "script" : "quick-color.js",
-            "handler" : "fillColorFromDocumentColorsForward",
-            "shortcut" : "cmd ]",
-            "name" : "Quick Document Color",
-            "identifier" : "quick-document-color-forward"
-        },
-        {
-            "script" : "quick-color.js",
-            "handler" : "fillColorFromDocumentColorsBackward",
-            "shortcut" : "cmd [",
-            "name" : "Quick Document Color",
-            "identifier" : "quick-document-color-backward"
-        },
-        {
-            "script" : "quick-color.js",
             "handler" : "fillColorFromGlobalColorsForward",
-            "shortcut" : "alt cmd ]",
+            "shortcut" : "cmd ]",
             "name" : "Quick Global Color",
             "identifier" : "quick-global-color-forward"
         },
         {
             "script" : "quick-color.js",
             "handler" : "fillColorFromGlobalColorsBackward",
-            "shortcut" : "alt cmd [",
+            "shortcut" : "cmd [",
             "name" : "Quick Global Color",
             "identifier" : "quick-global-color-backward"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "fillColorFromDocumentColorsForward",
+            "shortcut" : "alt cmd ]",
+            "name" : "Quick Document Color",
+            "identifier" : "quick-document-color-forward"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "fillColorFromDocumentColorsBackward",
+            "shortcut" : "alt cmd [",
+            "name" : "Quick Document Color",
+            "identifier" : "quick-document-color-backward"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor1",
+            "shortcut" : "cmd ctrl 1",
+            "name" : "Set Fill to Global Color 1",
+            "identifier" : "quick-global-color-fill-1"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor2",
+            "shortcut" : "cmd ctrl 2",
+            "name" : "Set Fill to Global Color 2",
+            "identifier" : "quick-global-color-fill-2"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor3",
+            "shortcut" : "cmd ctrl 3",
+            "name" : "Set Fill to Global Color 3",
+            "identifier" : "quick-global-color-fill-3"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor4",
+            "shortcut" : "cmd ctrl 4",
+            "name" : "Set Fill to Global Color 4",
+            "identifier" : "quick-global-color-fill-4"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor5",
+            "shortcut" : "cmd ctrl 5",
+            "name" : "Set Fill to Global Color 5",
+            "identifier" : "quick-global-color-fill-5"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor6",
+            "shortcut" : "cmd ctrl 6",
+            "name" : "Set Fill to Global Color 6",
+            "identifier" : "quick-global-color-fill-6"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor7",
+            "shortcut" : "cmd ctrl 7",
+            "name" : "Set Fill to Global Color 7",
+            "identifier" : "quick-global-color-fill-7"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor8",
+            "shortcut" : "cmd ctrl 8",
+            "name" : "Set Fill to Global Color 8",
+            "identifier" : "quick-global-color-fill-8"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor9",
+            "shortcut" : "cmd ctrl 9",
+            "name" : "Set Fill to Global Color 9",
+            "identifier" : "quick-global-color-fill-9"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setFillToGlobalColor10",
+            "shortcut" : "cmd ctrl 10",
+            "name" : "Set Fill to Global Color 10",
+            "identifier" : "quick-global-color-fill-10"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor1",
+            "shortcut" : "ctrl shift 1",
+            "name" : "Set Border to Global Color 1",
+            "identifier" : "quick-global-color-border-1"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor2",
+            "shortcut" : "ctrl shift 2",
+            "name" : "Set Border to Global Color 2",
+            "identifier" : "quick-global-color-border-2"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor3",
+            "shortcut" : "ctrl shift 3",
+            "name" : "Set Border to Global Color 3",
+            "identifier" : "quick-global-color-border-3"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor4",
+            "shortcut" : "ctrl shift 4",
+            "name" : "Set Border to Global Color 4",
+            "identifier" : "quick-global-color-border-4"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor5",
+            "shortcut" : "ctrl shift 5",
+            "name" : "Set Border to Global Color 5",
+            "identifier" : "quick-global-color-border-5"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor6",
+            "shortcut" : "ctrl shift 6",
+            "name" : "Set Border to Global Color 6",
+            "identifier" : "quick-global-color-border-6"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor7",
+            "shortcut" : "ctrl shift 7",
+            "name" : "Set Border to Global Color 7",
+            "identifier" : "quick-global-color-border-7"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor8",
+            "shortcut" : "ctrl shift 8",
+            "name" : "Set Border to Global Color 8",
+            "identifier" : "quick-global-color-border-8"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor9",
+            "shortcut" : "ctrl shift 9",
+            "name" : "Set Border to Global Color 9",
+            "identifier" : "quick-global-color-border-9"
+        },
+        {
+            "script" : "quick-color.js",
+            "handler" : "setBorderToGlobalColor10",
+            "shortcut" : "ctrl shift 10",
+            "name" : "Set Border to Global Color 10",
+            "identifier" : "quick-global-color-border-10"
         }
     ],
     "menu": {
@@ -41,7 +181,29 @@
             "quick-global-color-backward",
             "-",
             "quick-document-color-forward",
-            "quick-document-color-backward"
+            "quick-document-color-backward",
+            "-",
+            "quick-global-color-fill-1",
+            "quick-global-color-fill-2",
+            "quick-global-color-fill-3",
+            "quick-global-color-fill-4",
+            "quick-global-color-fill-5",
+            "quick-global-color-fill-6",
+            "quick-global-color-fill-7",
+            "quick-global-color-fill-8",
+            "quick-global-color-fill-9",
+            "quick-global-color-fill-10",
+            "-",
+            "quick-global-color-border-1",
+            "quick-global-color-border-2",
+            "quick-global-color-border-3",
+            "quick-global-color-border-4",
+            "quick-global-color-border-5",
+            "quick-global-color-border-6",
+            "quick-global-color-border-7",
+            "quick-global-color-border-8",
+            "quick-global-color-border-9",
+            "quick-global-color-border-10"
         ]
     }
 }
