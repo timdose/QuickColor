@@ -199,7 +199,8 @@ function getFillColor(layer) {
         }
     }
     if (layer.class() == "MSTextLayer") {
-        return layer.textColor();
+        console.log(layer.textColor());
+        return MSColor.alloc().initWithImmutableObject(layer.textColor());
     }
 }
 
