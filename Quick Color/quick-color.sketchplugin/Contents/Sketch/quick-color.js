@@ -228,6 +228,7 @@ function setBorderColor(layer, color) {
         } else {
             var border = layer.style().addStylePartOfType(1);
             // border.setBorderType(1);
+            border.setPosition(1)
             borders.lastObject().setColor(color);
         }
     }
