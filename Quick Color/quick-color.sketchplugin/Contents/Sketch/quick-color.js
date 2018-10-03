@@ -139,6 +139,7 @@ function setSelectionToGlobalColor(context, index, type ) {
             setFillColor(layer, colors.objectAtIndex(index));
         } else if ( type == "border" ) {
             setBorderColor(layer, colors.objectAtIndex(index));
+            doc.reloadInspector();
         }
     }
 }
