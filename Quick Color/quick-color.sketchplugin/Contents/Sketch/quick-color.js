@@ -119,20 +119,22 @@ var setBorderToGlobalColor10 = function(context) {
 
 
 function setSelectionToGlobalColor(context, index, type ) {
+    console.log('setSelectionToGlobalColor')
     var colors = NSApp.delegate().globalAssets().colors();
     var selection = context.selection;
-
+    console.log(selection)
+    
     if (colors.count() == 0) {
         doc.showMessage("You don't have any Global Colors set yet");
         return false;
     }
-
-
+    
+    
     if (selection.count() == 0) {
         doc.showMessage("Please select at least one Shape or Text layer.");
         return false;
     }
-
+    
     for (var i = 0; i < selection.count(); i++) {
         var layer = selection.objectAtIndex(i);
         if ( type == "fill" ) {
@@ -206,7 +208,20 @@ function getFillColor(layer) {
 }
 
 function setFillColor(layer, color) {
+    console.log(`layer class: ${layer.class()}`)
+    console.log('here')
     if (layer.class() == "MSShapeGroup") {
+        var fills = layer.style().enabledFills();
+        if (fills.count() > 0 && fills.lastObject().fillType() == 0) {
+            fills.lastObject().setColor(color);
+        } else {
+            var fill = layer.style().addStylePartOfType(0);
+            fill.setFillType(0);
+            fills.lastObject().setColor(color);
+        }
+    }
+    if (layer.class() == "MSRectangleShape") {
+        console.log('here')
         var fills = layer.style().enabledFills();
         if (fills.count() > 0 && fills.lastObject().fillType() == 0) {
             fills.lastObject().setColor(color);
