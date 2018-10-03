@@ -122,6 +122,7 @@ function setSelectionToGlobalColor(context, index, type ) {
     console.log('setSelectionToGlobalColor')
     var colors = NSApp.delegate().globalAssets().colors();
     var selection = context.selection;
+    var doc = context.document;
     console.log(selection)
     
     if (colors.count() == 0) {
@@ -141,9 +142,9 @@ function setSelectionToGlobalColor(context, index, type ) {
             setFillColor(layer, colors.objectAtIndex(index));
         } else if ( type == "border" ) {
             setBorderColor(layer, colors.objectAtIndex(index));
-            doc.reloadInspector();
         }
     }
+    doc.reloadInspector();
 }
 
 
@@ -208,19 +209,7 @@ function getFillColor(layer) {
 }
 
 function setFillColor(layer, color) {
-    console.log(`layer class: ${layer.class()}`)
-    console.log('here')
-    if (layer.class() == "MSShapeGroup") {
-        var fills = layer.style().enabledFills();
-        if (fills.count() > 0 && fills.lastObject().fillType() == 0) {
-            fills.lastObject().setColor(color);
-        } else {
-            var fill = layer.style().addStylePartOfType(0);
-            fill.setFillType(0);
-            fills.lastObject().setColor(color);
-        }
-    }
-    if (layer.class() == "MSRectangleShape") {
+    if (layer.class() == "MSShapeGroup" || layer.class() == "MSRectangleShape" ) {
         console.log('here')
         var fills = layer.style().enabledFills();
         if (fills.count() > 0 && fills.lastObject().fillType() == 0) {
@@ -237,7 +226,7 @@ function setFillColor(layer, color) {
 }
 
 function setBorderColor(layer, color) {
-    if (layer.class() == "MSShapeGroup") {
+    if (layer.class() == "MSShapeGroup" || layer.class() == "MSRectangleShape" ) {
         var borders = layer.style().enabledBorders();
         if (borders.count() > 0 ) {
             borders.lastObject().setColor(color);
@@ -245,6 +234,7 @@ function setBorderColor(layer, color) {
             var border = layer.style().addStylePartOfType(1);
             // border.setBorderType(1);
             border.setPosition(1)
+            console.log(border);
             borders.lastObject().setColor(color);
         }
     }
