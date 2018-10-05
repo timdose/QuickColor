@@ -150,6 +150,8 @@ function setSelectionToGlobalColor(context, index, type ) {
 
 
 function fillColorFormColors(context, colors, forward, alertMessage) {
+    var direction = forward? 'forward':'backward';
+    console.log( 'moving color ' +  direction )
     var doc = context.document;
 
     if (colors.count() == 0) {
@@ -166,7 +168,7 @@ function fillColorFormColors(context, colors, forward, alertMessage) {
 
     for (var i = 0; i < selection.count(); i++) {
         var layer = selection.objectAtIndex(i);
-        if (layer.class() == "MSShapeGroup" || layer.class() == "MSTextLayer") {
+    if (isShapeLayer(layer.class()) || layer.class() == "MSTextLayer") {
             var index = colors.indexOfObject(getFillColor(layer));
 
             if (forward) {
@@ -190,7 +192,7 @@ function fillColorFormColors(context, colors, forward, alertMessage) {
 }
 
 function getFillColor(layer) {
-    if (layer.class() == "MSShapeGroup") {
+if (isShapeLayer(layer)) {
         var fills = layer.style().enabledFills();
         if (fills.count() > 0) {
             if (fills.lastObject().fillType() == 0) {
@@ -209,7 +211,8 @@ function getFillColor(layer) {
 }
 
 function setFillColor(layer, color) {
-    if (layer.class() == "MSShapeGroup" || layer.class() == "MSRectangleShape" ) {
+    console.log('layer class: ' + layer.class() )
+    if (isShapeLayer(layer) ) {
         console.log('here')
         var fills = layer.style().enabledFills();
         if (fills.count() > 0 && fills.lastObject().fillType() == 0) {
@@ -226,7 +229,7 @@ function setFillColor(layer, color) {
 }
 
 function setBorderColor(layer, color) {
-    if (layer.class() == "MSShapeGroup" || layer.class() == "MSRectangleShape" ) {
+    if ( isShapeLayer(layer) ) {
         var borders = layer.style().enabledBorders();
         if (borders.count() > 0 ) {
             borders.lastObject().setColor(color);
@@ -238,4 +241,13 @@ function setBorderColor(layer, color) {
             borders.lastObject().setColor(color);
         }
     }
+}
+
+
+function isShapeLayer( layer ) {
+    if ( layer.class() == "MSShapeGroup" ) return true;
+    if ( layer.class() == "MSRectangleShape" ) return true;
+    if ( layer.class() == "MSOvalShape" ) return true;
+    if ( layer.class() == "MSShapePathLayer" ) return true;
+    return false;
 }
