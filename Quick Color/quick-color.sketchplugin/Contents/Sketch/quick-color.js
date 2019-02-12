@@ -1,8 +1,12 @@
+function getGlobalColors() {
+    return MSPersistentAssetCollection.sharedGlobalAssets().colorAssets()
+}
+
 
 var fillColorFromGlobalColorsForward = function(context) {
     fillColorFormColors(
         context,
-        NSApp.delegate().globalAssets().colors(),
+        getGlobalColors(),
         true,
         "You don't have any Global Colors Palette set yet"
     );
@@ -11,7 +15,7 @@ var fillColorFromGlobalColorsForward = function(context) {
 var fillColorFromGlobalColorsBackward = function(context) {
     fillColorFormColors(
         context,
-        NSApp.delegate().globalAssets().colors(),
+        getGlobalColors(),
         false,
         "You don't have any Global Colors Palette set yet"
     );
@@ -119,10 +123,11 @@ var setBorderToGlobalColor10 = function(context) {
 
 
 function setSelectionToGlobalColor(context, index, type ) {
-    console.log('setSelectionToGlobalColor')
-    var colors = NSApp.delegate().globalAssets().colors();
+    console.log('\n\nsetSelectionToGlobalColor')
+    var colors = getGlobalColors();
     var selection = context.selection;
     var doc = context.document;
+    console.log('here')
     console.log(selection)
     
     if (colors.count() == 0) {
@@ -136,12 +141,14 @@ function setSelectionToGlobalColor(context, index, type ) {
         return false;
     }
     
+    var newColor = colors.objectAtIndex(index).color();
+
     for (var i = 0; i < selection.count(); i++) {
         var layer = selection.objectAtIndex(i);
         if ( type == "fill" ) {
-            setFillColor(layer, colors.objectAtIndex(index));
+            setFillColor(layer, newColor);
         } else if ( type == "border" ) {
-            setBorderColor(layer, colors.objectAtIndex(index));
+            setBorderColor(layer, newColor);
         }
     }
     doc.reloadInspector();
@@ -213,7 +220,8 @@ if (isShapeLayer(layer)) {
 function setFillColor(layer, color) {
     console.log('layer class: ' + layer.class() )
     if (isShapeLayer(layer) ) {
-        console.log('here')
+        console.log('setFillColor')
+        console.log(color)
         var fills = layer.style().enabledFills();
         if (fills.count() > 0 && fills.lastObject().fillType() == 0) {
             fills.lastObject().setColor(color);
